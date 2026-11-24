@@ -1,4 +1,4 @@
-﻿# ðŸ“Š CC Dashboard â€” painÃ©is ao vivo no Claude
+# ðŸ“Š CC Dashboard â€” painÃ©is ao vivo no Claude
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,7 +6,7 @@
 </div>
 
 
-[![CC Dashboard](guia/assets/banner.jpg)](https://inematds.github.io/ccdashboard/guia/)
+[![CC Dashboard](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/
 
 **ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
 
@@ -16,7 +16,7 @@ O CC Dashboard Ã© um kit em portuguÃªs para usar os Dashboards do Claude, pa
 
 ## ðŸ“– Guia de uso
 
-Guia completo (landing + passo a passo): **https://inematds.github.io/ccdashboard/guia/**
+Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/
 
 ## Como funciona
 
@@ -119,7 +119,7 @@ A **telemetria de agentes (Frente C)** jÃ¡ estÃ¡ implementada e testada no L
 
 ---
 
-[INEMA.CLUB](https://inema.club)
+[ARCKHÉ AI](https://ARCKHÉ AI)
 
 ---
 
