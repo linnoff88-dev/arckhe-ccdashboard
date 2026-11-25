@@ -2,7 +2,7 @@
 
 [![CC Dashboard](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
-**ðŸ‡§ðŸ‡· [PortuguÃªs](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [EspaÃ±ol](README.es.md)**
+**ðŸ‡§ðŸ‡· [Português](README.md) Â· ðŸ‡ºðŸ‡¸ [English](README.en.md) Â· ðŸ‡ªðŸ‡¸ [Espaê±ol](README.es.md)**
 
 ## What it is
 
@@ -25,7 +25,7 @@ Apps (CRM, spreadsheet, database) â†’ Connector in Claude â†’ [Central
 ```
 
 - A question that fits in a single app: connector + prompt and you are done.
-- A question that combines apps (hours Ã— invoices, subscriptions Ã— charges): the records must be copied into a central database (Supabase = hosted Postgres), which keeps history and allows combining them.
+- A question that combines apps (hours ê— invoices, subscriptions ê— charges): the records must be copied into a central database (Supabase = hosted Postgres), which keeps history and allows combining them.
 
 **Claude Code**
 

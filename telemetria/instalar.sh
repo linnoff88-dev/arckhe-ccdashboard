@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Instala a telemetria de agentes: hooks + OpenTelemetry no ~/.claude/settings.json (com backup),
-# painel (127.0.0.1 e 192.168.2.99:8766), coletores OTLP/Codex e manutenção de hora em hora (systemd --user).
+# painel (127.0.0.1 e 192.168.2.99:8766), coletores OTLP/Codex e manutençêo de hora em hora (systemd --user).
 set -euo pipefail
 AQUI="$(cd "$(dirname "$0")" && pwd)"
 SETTINGS="${CLAUDE_SETTINGS:-$HOME/.claude/settings.json}"

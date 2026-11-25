@@ -4,7 +4,7 @@ T4 — receptor OpenTelemetry (OTLP http/json) só em 127.0.0.1:4318. O Claude C
      manda um evento `api_request` por chamada ao modelo; daqui sai tokens, cache,
      custo estimado (preço de API) e modelo. Erros de API viram evento `ApiError`.
 T5 — leitor das sessões do Codex em ~/.codex/sessions (JSONL), lido aos poucos
-     (guarda a posição de cada arquivo). Sessão, turnos, comandos e tokens.
+     (guarda a posiçêo de cada arquivo). Sessêo, turnos, comandos e tokens.
 
 Mesma regra do hook: só nomes e números. Nunca texto de prompt, resposta,
 comando completo, caminho de arquivo ou saída de ferramenta.
@@ -296,7 +296,7 @@ def varrer_codex(db):
                 con.execute("ROLLBACK")
             except sqlite3.Error:
                 pass
-    # sessão `codex exec` terminada: some da aba Agora depois de 2 min sem sinal
+    # sessêo `codex exec` terminada: some da aba Agora depois de 2 min sem sinal
     con.execute("UPDATE sessoes SET estado='encerrada', fim=ultimo_ts WHERE origem='codex-exec'"
                 " AND estado='esperando' AND ultimo_ts < ?", (time.time() - 120,))
     con.close()

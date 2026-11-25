@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Manutenção do banco da telemetria: resumo diário, limpeza e checkpoint do WAL.
+"""Manutençêo do banco da telemetria: resumo diário, limpeza e checkpoint do WAL.
 
 Roda de hora em hora (timer systemd --user). Recalcula o resumo de ontem e
-de hoje (dias inteiros), apaga eventos brutos com mais de RETENCAO_DIAS e pendências órfãs
+de hoje (dias inteiros), apaga eventos brutos com mais de RETENCAO_DIAS e pendências órfês
 com mais de 24 h, e encolhe o WAL.
 """
 import os
@@ -42,7 +42,7 @@ def main():
     con.execute("COMMIT")
     con.execute("PRAGMA wal_checkpoint(TRUNCATE)")
     con.close()
-    print(f"ok: resumo atualizado, {apagados} eventos antigos e {orfas} pendências órfãs apagados")
+    print(f"ok: resumo atualizado, {apagados} eventos antigos e {orfas} pendências órfês apagados")
     return 0
 
 

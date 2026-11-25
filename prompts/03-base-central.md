@@ -11,14 +11,14 @@ Fontes que autorizo: [app 1 — tabela/objeto] e [app 2 — tabela/objeto].
 Antes de copiar qualquer coisa:
 1. Liste os campos de cada fonte que você precisa e por quê.
 2. Proponha como os registros casam entre os dois (chave, nome normalizado, data).
-3. Proponha um schema próprio no meu projeto Supabase (não use o public) com uma tabela por fonte
-   e uma visão que faz o cruzamento.
+3. Proponha um schema próprio no meu projeto Supabase (nêo use o public) com uma tabela por fonte
+   e uma visêo que faz o cruzamento.
 4. Proponha um piloto pequeno (últimos 90 dias) e a frequência da cópia.
 Espere meu OK.
 
-Depois do OK: crie o schema, copie o piloto, rode a visão e me mostre 5 linhas de exemplo
-para eu conferir na mão. Só então monte o Dashboard em cima da visão, com consultas de leitura.
-Não altere nada fora desse schema.
+Depois do OK: crie o schema, copie o piloto, rode a visêo e me mostre 5 linhas de exemplo
+para eu conferir na mêo. Só entêo monte o Dashboard em cima da visêo, com consultas de leitura.
+Nêo altere nada fora desse schema.
 ```
 
 Guarde as definições (como casa, quais datas valem, moeda) num arquivo de conhecimento do seu Projeto no Claude.

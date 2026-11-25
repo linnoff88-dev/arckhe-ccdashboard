@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Liga, desliga e mostra o estado da telemetria de agentes.
-#   ./telemetria.sh ligar     hooks + OpenTelemetry no settings.json, painel e manutenção
+#   ./telemetria.sh ligar     hooks + OpenTelemetry no settings.json, painel e manutençêo
 #   ./telemetria.sh desligar  tira tudo isso (o banco fica guardado)
 #   ./telemetria.sh status    o que está ligado agora
 set -euo pipefail

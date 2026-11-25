@@ -3,10 +3,10 @@
 Use num chat com o conector do app ligado. Troque o que está entre colchetes.
 
 ```text
-Monte um Dashboard do Claude usando minha conexão com [nome do app ou Supabase].
+Monte um Dashboard do Claude usando minha conexêo com [nome do app ou Supabase].
 
-Pergunta que o painel precisa responder: [a pergunta que muda o que eu faço amanhã —
-ex.: quais faturas estão em atraso e há quanto tempo?].
+Pergunta que o painel precisa responder: [a pergunta que muda o que eu faço amanhê —
+ex.: quais faturas estêo em atraso e há quanto tempo?].
 
 Fonte: [tabela ou objeto do app — ex.: faturas / invoices].
 
@@ -17,12 +17,12 @@ Definições:
 - Moeda: [BRL].
 
 Mostre: o total, a quebra por [faixa de atraso / cliente / mês] e, em cada gráfico,
-a consulta usada e a hora da última atualização.
+a consulta usada e a hora da última atualizaçêo.
 
 Regras:
-- Use consultas de leitura salvas no painel, nunca números escritos à mão.
-- Não altere nenhum dado.
-- Se faltar tabela, permissão ou definição, me pergunte em vez de supor.
+- Use consultas de leitura salvas no painel, nunca números escritos à mêo.
+- Nêo altere nenhum dado.
+- Se faltar tabela, permissêo ou definiçêo, me pergunte em vez de supor.
 ```
 
-Depois, refine conversando: "adicione filtro por faixa de atraso", "mude para visão semanal", "separe por cliente".
+Depois, refine conversando: "adicione filtro por faixa de atraso", "mude para visêo semanal", "separe por cliente".

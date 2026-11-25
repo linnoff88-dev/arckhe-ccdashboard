@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Painel da telemetria de agentes.
 
-Escuta em 127.0.0.1 e nos endereços de TELEMETRIA_HOSTS (padrão: a rede local
+Escuta em 127.0.0.1 e nos endereços de TELEMETRIA_HOSTS (padrêo: a rede local
 192.168.2.99) e só atende clientes de TELEMETRIA_REDES. Lê o SQLite em modo
 somente leitura e entrega a página (painel.html) e as rotas /api/*.
 Também sobe os coletores da T4 (OTLP em 127.0.0.1:4318) e da T5 (Codex).
@@ -50,7 +50,7 @@ def processo_vivo(pid):
 
 
 def pids_claude():
-    """Processos do Claude Code vivos na máquina (para contar os que ainda não deram sinal)."""
+    """Processos do Claude Code vivos na máquina (para contar os que ainda nêo deram sinal)."""
     pids = set()
     for nome in os.listdir("/proc"):
         if nome.isdigit():
@@ -102,7 +102,7 @@ _titulos = {}  # sessao -> (caminho, tamanho lido, título)
 
 
 def titulo_da_sessao(sessao):
-    """Título da sessão (o mesmo do /resume), lido na hora do transcript; nada vai para o banco."""
+    """Título da sessêo (o mesmo do /resume), lido na hora do transcript; nada vai para o banco."""
     if not sessao:
         return None
     caminho, lido, titulo = _titulos.get(sessao, (None, 0, None))
@@ -140,8 +140,8 @@ def inicio_do_dia():
 
 
 def trabalho_em_fundo(con, agora):
-    """O que cada sessão deixou trabalhando sozinho: comandos em segundo plano (por pid),
-    subagentes ainda sem SubagentStop e runs do systemd-run lançados da pasta da sessão (por sessão)."""
+    """O que cada sessêo deixou trabalhando sozinho: comandos em segundo plano (por pid),
+    subagentes ainda sem SubagentStop e runs do systemd-run lançados da pasta da sessêo (por sessêo)."""
     por_sessao = {}
     ultimo = {}
     for r in linhas(con, "SELECT sessao, agente, tipo_agente, evento, ts FROM eventos"
@@ -188,7 +188,7 @@ def api_agora(con):
         n_bash = sum(1 for p in rodando if p["ferramenta"] == "Bash")  # Bash em primeiro plano também cai em tasks/
         em_fundo = cmds[:max(0, len(cmds) - n_bash)] + fundo["sessao"].get(s["sessao"], [])
         if s["estado"] == "esperando" and s["ultimo_evento"] == "PermissionRequest":
-            selo = "pede permissão"
+            selo = "pede permissêo"
         elif s["estado"] == "esperando" and em_fundo:
             selo = "em segundo plano"
         elif s["estado"] == "esperando":
@@ -227,7 +227,7 @@ def api_agora(con):
 
 
 def info_processo(pid):
-    """cwd e linha de comando do processo da sessão, se ainda vivo."""
+    """cwd e linha de comando do processo da sessêo, se ainda vivo."""
     if not pid or not os.path.exists(f"/proc/{pid}"):
         return None
     info = {"pid": pid}
@@ -251,14 +251,14 @@ def info_processo(pid):
 
 
 def api_sessao(con, sid=""):
-    """Tudo o que o banco sabe de uma sessão (id completo ou prefixo)."""
+    """Tudo o que o banco sabe de uma sessêo (id completo ou prefixo)."""
     agora = time.time()
     if not sid or len(sid) < 8:
-        return {"erro": "id da sessão ausente"}
+        return {"erro": "id da sessêo ausente"}
     s = con.execute("SELECT * FROM sessoes WHERE sessao LIKE ? ORDER BY ultimo_ts DESC LIMIT 1",
                     (sid + "%",)).fetchone()
     if not s:
-        return {"erro": "sessão não encontrada"}
+        return {"erro": "sessêo nêo encontrada"}
     s = dict(s)
     sid = s["sessao"]
     um = lambda sql, a=(): con.execute(sql, a).fetchone()
@@ -440,7 +440,7 @@ def projeto_do_texto(texto):
 
 
 def sessao_do_texto(texto):
-    """Caminho de scratchpad de sessão do Claude (/tmp/claude-N/-home-...-projetos-X/<uuid>/) -> (projeto, título)."""
+    """Caminho de scratchpad de sessêo do Claude (/tmp/claude-N/-home-...-projetos-X/<uuid>/) -> (projeto, título)."""
     import re
     m = re.search(r"/tmp/claude-\d+/-[^/]*?-projetos-([^/]+)/([0-9a-f]{8}-[0-9a-f-]{27})/", texto or "")
     if not m:
@@ -478,7 +478,7 @@ def ts_systemd(valor):
 
 
 def proximo_cron(expr, agora):
-    """Próxima execução para linhas 'm h * * dow' (o que existe no crontab). Outras formas: None."""
+    """Próxima execuçêo para linhas 'm h * * dow' (o que existe no crontab). Outras formas: None."""
     try:
         m, h, dia, mes, dow = expr.split()[:5]
         if dia != "*" or mes != "*" or not m.isdigit() or not h.isdigit():
@@ -499,7 +499,7 @@ def api_rotinas(_con):
     agora = time.time()
     if _rotinas_cache[1] and agora - _rotinas_cache[0] < 10:
         return _rotinas_cache[1]
-    # Serviços rodando que são nossos (unit em ~/.config/systemd/user ou transitória), não os do desktop.
+    # Serviços rodando que sêo nossos (unit em ~/.config/systemd/user ou transitória), nêo os do desktop.
     rodando_ids = [json_u["unit"] for json_u in json.loads(
         systemctl("list-units", "--type=service", "--state=running", "-o", "json") or "[]")]
     props = propriedades(rodando_ids, ["Id", "Description", "FragmentPath", "ExecStart", "WorkingDirectory",
@@ -578,7 +578,7 @@ _calendario_cache = {}  # spec -> (ts, [epochs])
 
 
 def proximas_calendario(spec, agora, limite):
-    """Execuções de um OnCalendar até `limite`, pelo systemd-analyze (cache de 5 min por expressão)."""
+    """Execuções de um OnCalendar até `limite`, pelo systemd-analyze (cache de 5 min por expressêo)."""
     import re
     import subprocess
     em_cache = _calendario_cache.get(spec)
@@ -657,7 +657,7 @@ def chave_hora(texto):
 
 
 def api_agenda(_con):
-    """Só o que tem execução prevista: cada disparo das próximas AGENDA_HORAS, em ordem de hora."""
+    """Só o que tem execuçêo prevista: cada disparo das próximas AGENDA_HORAS, em ordem de hora."""
     import re
     import subprocess
     agora = time.time()
@@ -856,7 +856,7 @@ if __name__ == "__main__":
             servidores.append(ThreadingHTTPServer((host, PORTA), Handler))
             print(f"painel em http://{host}:{PORTA}/", flush=True)
         except OSError as e:
-            print(f"não consegui escutar em {host}:{PORTA}: {e}", flush=True)
+            print(f"nêo consegui escutar em {host}:{PORTA}: {e}", flush=True)
     if not servidores:
         raise SystemExit(1)
     for srv in servidores[1:]:

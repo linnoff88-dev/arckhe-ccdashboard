@@ -2,8 +2,8 @@
 """Coletor por hook da telemetria de agentes (Frente C).
 
 Lê o JSON que o Claude Code entrega ao hook, guarda só os campos permitidos num
-SQLite local e sai com código 0 sempre. Nunca escreve na saída padrão: em
-SessionStart e UserPromptSubmit o que sai ali entra no contexto da sessão.
+SQLite local e sai com código 0 sempre. Nunca escreve na saída padrêo: em
+SessionStart e UserPromptSubmit o que sai ali entra no contexto da sessêo.
 
 Nunca grava: prompt, resposta, comando completo, caminho de arquivo, entrada ou
 saída de ferramenta, texto de erro.
@@ -305,7 +305,7 @@ def principal():
         )
 
     if sessao:
-        # Evento de subagente mantém a sessão-mãe "processando", sem trocar a origem dela.
+        # Evento de subagente mantém a sessêo-mêe "processando", sem trocar a origem dela.
         estado = ESTADO.get(evento, "processando")
         if agente and estado == "esperando":
             estado = "processando"

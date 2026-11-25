@@ -1,51 +1,51 @@
 {
   "atualizado": "2026-10-16",
-  "nota": "InventÃ¡rio escrito Ã  mÃ£o (detalhe em ~/projetos/wifi/VPS.md). Disco, RAM e uptime sÃ£o lidos ao vivo por SSH a cada 10 min.",
+  "nota": "InventêÂ¡rio escrito êÂ  mêÂ£o (detalhe em ~/projetos/wifi/VPS.md). Disco, RAM e uptime sêÂ£o lidos ao vivo por SSH a cada 10 min.",
   "vps": [
     {
       "id": "vps1", "nome": "ubuntu-S2", "hostname": "agente2", "ip": "157.180.72.42",
-      "provedor": "Hetzner", "plano": "CX22 Â· 2 vCPU Â· 4 GB Â· 40 GB", "local": "eu-central",
+      "provedor": "Hetzner", "plano": "CX22 êÂ· 2 vCPU êÂ· 4 GB êÂ· 40 GB", "local": "eu-central",
       "dominios": [],
-      "roda": ["TLGruposVIP em Docker: web (:3002), bot, worker, worker-email, nginx (:80)", "cloudflared (tÃºnel Cloudflare)"],
+      "roda": ["TLGruposVIP em Docker: web (:3002), bot, worker, worker-email, nginx (:80)", "cloudflared (têÂºnel Cloudflare)"],
       "deploy": "ssh root@157.180.72.42 \"cd /root/projetos/TLGruposVIP && git pull && docker compose up -d --build\"",
-      "chave": "id_ed25519 (padrÃ£o)"
+      "chave": "id_ed25519 (padrêÂ£o)"
     },
     {
       "id": "vps2", "nome": "nano", "hostname": "nano", "ip": "37.27.39.74",
-      "provedor": "Hetzner", "plano": "CX23 Â· 2 vCPU Â· 4 GB Â· 40 GB", "local": "Helsinki",
-      "dominios": ["vps2.ARCKHÉ AI", "cert.ARCKHÉ.pro", "salaconf.ARCKHÉ.pro"],
-      "roda": ["ARCKHÉCERT (api :4000, web :4100) + Postgres 16 + Redis", "sala-multiplayer (:4600)", "videoprodutos (:3080)", "nanobot", "bench-studio-br (:5200)", "Caddy (80/443)"],
-      "chave": "id_ed25519 e id_ed25519_ARCKHÉ"
+      "provedor": "Hetzner", "plano": "CX23 êÂ· 2 vCPU êÂ· 4 GB êÂ· 40 GB", "local": "Helsinki",
+      "dominios": ["vps2.ARCKHê AI", "cert.ARCKHê.pro", "salaconf.ARCKHê.pro"],
+      "roda": ["ARCKHêCERT (api :4000, web :4100) + Postgres 16 + Redis", "sala-multiplayer (:4600)", "videoprodutos (:3080)", "nanobot", "bench-studio-br (:5200)", "Caddy (80/443)"],
+      "chave": "id_ed25519 e id_ed25519_ARCKHê"
     },
     {
       "id": "vps3", "nome": "ubuntu-4gb-Waldemar", "hostname": "ubuntu-4gb-Waldemar", "ip": "135.181.44.37",
-      "provedor": "Hetzner", "plano": "CX23 Â· 2 vCPU Â· 4 GB Â· 40 GB", "local": "Helsinki",
-      "dominios": ["vps3.ARCKHÉ AI"],
+      "provedor": "Hetzner", "plano": "CX23 êÂ· 2 vCPU êÂ· 4 GB êÂ· 40 GB", "local": "Helsinki",
+      "dominios": ["vps3.ARCKHê AI"],
       "roda": ["terminais-dashboard + terminais-public", "bench-studio-br (:5200, :5300)"],
-      "chave": "id_ed25519 e id_ed25519_ARCKHÉ"
+      "chave": "id_ed25519 e id_ed25519_ARCKHê"
     },
     {
       "id": "vps4", "nome": "mkt3", "hostname": "mkt3", "ip": "62.238.25.84",
-      "provedor": "Hetzner", "plano": "CX23 Â· 2 vCPU Â· 4 GB Â· 40 GB", "local": "Helsinki",
+      "provedor": "Hetzner", "plano": "CX23 êÂ· 2 vCPU êÂ· 4 GB êÂ· 40 GB", "local": "Helsinki",
       "dominios": [],
       "roda": ["master-dashboard do yt-pub-livesx (:8090)", "pasta timesmkt3 (parada)"],
-      "chave": "id_ed25519 e id_ed25519_ARCKHÉ (instaladas 16/10/2026)"
+      "chave": "id_ed25519 e id_ed25519_ARCKHê (instaladas 16/10/2026)"
     },
     {
       "id": "vps5", "nome": "Tiza", "hostname": "Tiza", "ip": "91.107.207.165",
-      "provedor": "Hetzner", "plano": "CX23 Â· 2 vCPU Â· 4 GB Â· 40 GB", "local": "Falkenstein",
+      "provedor": "Hetzner", "plano": "CX23 êÂ· 2 vCPU êÂ· 4 GB êÂ· 40 GB", "local": "Falkenstein",
       "dominios": [],
-      "roda": ["ARCKHÉdlp em Docker (app + Caddy 80/443)", "ARCKHÉccbot (gateway Telegram)", "ARCKHÉapoio (pm2)"],
-      "obs": "16/10/2026: removidos ARCKHÉcabot, agent-zero, yt-pub e pastas antigas; disco 99% â†’ 28%. Backup em ~/projetos/output/backup-tiza-2026-10-16/.",
-      "chave": "id_ed25519 (padrÃ£o)"
+      "roda": ["ARCKHêdlp em Docker (app + Caddy 80/443)", "ARCKHêccbot (gateway Telegram)", "ARCKHêapoio (pm2)"],
+      "obs": "16/10/2026: removidos ARCKHêcabot, agent-zero, yt-pub e pastas antigas; disco 99% ê¢â â 28%. Backup em ~/projetos/output/backup-tiza-2026-10-16/.",
+      "chave": "id_ed25519 (padrêÂ£o)"
     },
     {
       "id": "vps6", "nome": "srv1162715", "hostname": "srv1162715", "ip": "72.60.148.187",
-      "provedor": "Hostinger", "plano": "KVM Â· 4 vCPU Â· 16 GB Â· 200 GB", "local": "â€”",
-      "dominios": ["n8n.ARCKHÉ.cloud"],
-      "roda": ["n8n 2.4.8 em Docker (32 workflows, 10 ativos: sÃ©rie nm85 de cobranÃ§a/labels ARCKHÉ.VIP)", "nginx + certbot (80/443)"],
+      "provedor": "Hostinger", "plano": "KVM êÂ· 4 vCPU êÂ· 16 GB êÂ· 200 GB", "local": "ê¢â¬â",
+      "dominios": ["n8n.ARCKHê.cloud"],
+      "roda": ["n8n 2.4.8 em Docker (32 workflows, 10 ativos: sêÂ©rie nm85 de cobranêÂ§a/labels ARCKHê.VIP)", "nginx + certbot (80/443)"],
       "obs": "Backup do n8n em 16/10/2026: ~/projetos/output/backup-n8n-hostinger-2026-10-16/. ufw desligado.",
-      "chave": "id_ed25519 e id_ed25519_ARCKHÉ (instaladas 16/10/2026)"
+      "chave": "id_ed25519 e id_ed25519_ARCKHê (instaladas 16/10/2026)"
     }
   ]
 }

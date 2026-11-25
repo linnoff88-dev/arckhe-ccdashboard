@@ -27,7 +27,7 @@ Telemetria de agentes (Frente C, tudo local, sem nuvem)
   o que está processando, o que espera você, o que falhou, tokens e custo estimado.
 
   Ligar / desligar / ver estado
-    ./help.sh ligar                       hooks + OpenTelemetry no ~/.claude/settings.json, painel e manutenção
+    ./help.sh ligar                       hooks + OpenTelemetry no ~/.claude/settings.json, painel e manutençêo
     ./help.sh desligar                    tira tudo isso (o banco fica guardado)
     telemetria/telemetria.sh status       o que está ligado agora
 
@@ -45,7 +45,7 @@ Telemetria de agentes (Frente C, tudo local, sem nuvem)
     serviços   telemetria-painel.service, telemetria-manutencao.timer  (systemd --user)
     detalhes   telemetria/PLANO.md  (testes, custo de máquina, ligar/desligar)
 
-  O que NÃO é guardado: texto de prompt, resposta, comando completo, caminho de arquivo,
+  O que NêO é guardado: texto de prompt, resposta, comando completo, caminho de arquivo,
   saída de ferramenta. Só nomes (projeto, ferramenta, skill, programa) e números.
 EOF
 

@@ -1,7 +1,7 @@
 # 04 — Observabilidade do Claude Code (prompt único)
 
 Cole num chat novo do Claude com o conector **Supabase** ligado (com escrita, só para a montagem).
-O Claude escreve o SQL e a função a partir desta especificação. Revise cada passo antes de dar OK.
+O Claude escreve o SQL e a funçêo a partir desta especificaçêo. Revise cada passo antes de dar OK.
 
 ```text
 # Montar o painel de observabilidade do meu Claude Code
@@ -10,18 +10,18 @@ Objetivo: o Claude Code envia a telemetria dele (OpenTelemetry, http/json) para 
 Supabase; o coletor guarda só campos seguros; um resumo diário alimenta um Dashboard do Claude.
 
 ## Regras
-- Use minha conexão Supabase. Liste meus projetos e pergunte qual usar.
+- Use minha conexêo Supabase. Liste meus projetos e pergunte qual usar.
 - Pergunte meu fuso (nome IANA, ex.: America/Sao_Paulo) e um nome curto para esta máquina.
 - Antes da primeira mudança, liste todos os passos e espere meu OK. Depois execute em ordem,
   dizendo o que cada um fez.
-- Se um passo falhar, pare e mostre o erro com a causa provável. Não desligue segurança para contornar.
-- Tudo fica no schema cc_obs. Não toque em nada fora dele.
+- Se um passo falhar, pare e mostre o erro com a causa provável. Nêo desligue segurança para contornar.
+- Tudo fica no schema cc_obs. Nêo toque em nada fora dele.
 - O painel só lê. Nunca altera dados.
 
 ## Passo 1 — Checagem
-Confirme (só leitura) que pg_cron e pgcrypto estão disponíveis. Se já existir schema cc_obs, pare e pergunte.
+Confirme (só leitura) que pg_cron e pgcrypto estêo disponíveis. Se já existir schema cc_obs, pare e pergunte.
 
-## Passo 2 — Banco (uma migração chamada cc_obs)
+## Passo 2 — Banco (uma migraçêo chamada cc_obs)
 - Tabelas brutas: cc_obs.eventos (logs/eventos), cc_obs.metricas (pontos de métrica), cc_obs.spans (traces).
   Colunas comuns: recebido_em timestamptz, maquina text, sessao text, nome text, atributos jsonb.
   Métricas também com valor numeric; spans com inicio, fim, duracao_ms, status.
@@ -48,12 +48,12 @@ Gere uma chave aleatória longa, grave só o hash em cc_obs.chaves e me mostre a
 ## Passo 4 — Coletor (Edge Function cc-coletor)
 - Rotas POST /v1/logs, /v1/metrics, /v1/traces, aceitando OTLP em JSON.
 - Lê o cabeçalho x-cc-key, compara o sha256 com cc_obs.chaves (ativa). Errado → 401.
-  Content-Type que não seja JSON → 415. Rota desconhecida → 404.
+  Content-Type que nêo seja JSON → 415. Rota desconhecida → 404.
 - Achata os recursos/escopos do OTLP, passa cada registro por cc_obs.filtrar e grava na tabela certa.
-- Verificação JWT desligada só nesta função (a autenticação é a chave).
-- Responde 200 rápido; erros de gravação vão para o log da função sem conteúdo do usuário.
+- Verificaçêo JWT desligada só nesta funçêo (a autenticaçêo é a chave).
+- Responde 200 rápido; erros de gravaçêo vêo para o log da funçêo sem conteúdo do usuário.
 
-## Passo 5 — Configuração do Claude Code
+## Passo 5 — Configuraçêo do Claude Code
 Me entregue o bloco "env" para ~/.claude/settings.json, já preenchido com a URL do projeto,
 a chave e o nome da máquina, usando: CLAUDE_CODE_ENABLE_TELEMETRY=1,
 CLAUDE_CODE_ENHANCED_TELEMETRY_BETA=1, exportadores otlp para métricas, logs e traces,
@@ -63,14 +63,14 @@ Explique que é preciso fechar e abrir o Claude Code depois. Diga que OTEL_LOG_T
 opcional: mostra nomes de skills e servidores MCP, e o coletor descarta o resto que ele envia.
 
 ## Passo 6 — Teste
-Eu vou abrir uma sessão nova e mandar um prompt simples. Depois confira se chegaram registros
+Eu vou abrir uma sessêo nova e mandar um prompt simples. Depois confira se chegaram registros
 em cc_obs.eventos nos últimos 5 minutos e rode cc_obs.recalcular_resumo() uma vez.
 
 ## Passo 7 — Dashboard
-Monte um Dashboard do Claude com cinco abas, consultas só de leitura, cada cartão com consulta e hora:
-1. Visão geral — sessões, custo estimado e tokens de hoje e dos últimos 7 dias; linha de 30 dias.
+Monte um Dashboard do Claude com cinco abas, consultas só de leitura, cada cartêo com consulta e hora:
+1. Visêo geral — sessões, custo estimado e tokens de hoje e dos últimos 7 dias; linha de 30 dias.
 2. Gasto e cache — custo por modelo; tokens de cache lidos × criados; custo por dia.
-3. Ferramentas e MCP — chamadas, % de falha e duração p50/p95 por ferramenta e por servidor MCP.
+3. Ferramentas e MCP — chamadas, % de falha e duraçêo p50/p95 por ferramenta e por servidor MCP.
 4. Skills e subagentes — uso e custo por skill e por tipo de agente.
 5. Saúde do coletor — último registro por máquina, volume por hora nas últimas 24h, tamanho do banco.
 Escreva no topo: "Custo = estimativa em preço de API; em Pro/Max vale a assinatura."
@@ -82,10 +82,10 @@ No fim me entregue: o link do painel, uma linha sobre o que cada aba responde e 
 
 | Sintoma | Causa provável | O que fazer |
 |---|---|---|
-| Nenhuma chamada no log da função | Claude Code não foi reiniciado ou o bloco está no arquivo errado | Fechar tudo, abrir sessão nova, mandar o teste |
-| 401 | Chave errada ou JWT ainda ligado | Conferir `x-cc-key=` + chave; desligar JWT na função |
-| 415 | Protocolo não é JSON | `OTEL_EXPORTER_OTLP_PROTOCOL=http/json` |
+| Nenhuma chamada no log da funçêo | Claude Code nêo foi reiniciado ou o bloco está no arquivo errado | Fechar tudo, abrir sessêo nova, mandar o teste |
+| 401 | Chave errada ou JWT ainda ligado | Conferir `x-cc-key=` + chave; desligar JWT na funçêo |
+| 415 | Protocolo nêo é JSON | `OTEL_EXPORTER_OTLP_PROTOCOL=http/json` |
 | 404 | Caminho errado | Cada endpoint termina em `/v1/logs`, `/v1/metrics` ou `/v1/traces` |
-| Chega, mas cartões vazios | Resumo ainda não rodou | Esperar 10 min ou rodar `select cc_obs.recalcular_resumo();` |
-| Sem cartões de duração | Traces só a partir de sessão nova | Abrir sessão nova e usar um pouco |
+| Chega, mas cartões vazios | Resumo ainda nêo rodou | Esperar 10 min ou rodar `select cc_obs.recalcular_resumo();` |
+| Sem cartões de duraçêo | Traces só a partir de sessêo nova | Abrir sessêo nova e usar um pouco |
 | Para descobrir o erro | — | `claude --debug-file /tmp/cc.log` e procurar linhas `[3P telemetry]` |

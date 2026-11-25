@@ -7,10 +7,10 @@ Faça um diagnóstico somente leitura do meu negócio [nome] usando os conectore
 
 Etapas, nesta ordem:
 1. Mapa: liste cada sistema conectado, a conta que está logada (confirme pelo perfil) e o que ele
-   cobre (dinheiro, vendas, entrega, atendimento, comunicação). Se alguma conta parecer de teste
-   ou demonstração, pare e me pergunte. Aponte as áreas sem nenhum sistema (pontos cegos).
+   cobre (dinheiro, vendas, entrega, atendimento, comunicaçêo). Se alguma conta parecer de teste
+   ou demonstraçêo, pare e me pergunte. Aponte as áreas sem nenhum sistema (pontos cegos).
 2. Evidência: varra um sistema por vez, só com chamadas de leitura (listar, buscar, contar).
-   Use metadados e totais, não leia corpo de e-mail nem documentos. Anote o que achou por sistema.
+   Use metadados e totais, nêo leia corpo de e-mail nem documentos. Anote o que achou por sistema.
 3. Cruzamento: só depois de varrer tudo, procure problemas que se somam entre áreas
    (ex.: atraso na entrega → fatura atrasada → caixa curto).
 4. Números: só dê valor ao que foi observado; mostre a fórmula de cada número.

@@ -11,5 +11,5 @@ if [ "${SEM_SYSTEMD:-0}" != 1 ]; then
   systemctl --user disable --now telemetria-painel.service telemetria-manutencao.timer 2>/dev/null || true
   rm -f "$HOME/.config/systemd/user/telemetria-painel.service" "$HOME/.config/systemd/user/telemetria-manutencao."{service,timer}
   systemctl --user daemon-reload
-  echo "painel e manutenção removidos"
+  echo "painel e manutençêo removidos"
 fi
