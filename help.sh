@@ -20,7 +20,7 @@ CC Dashboard — ajuda
 Kit (Dashboards do Claude)
   PLANO.md                 plano por fases (A negócio, B Claude Code no Supabase, C telemetria local)
   prompts/01..06-*.md      prompts prontos para colar no Claude
-  guia/                    guia em PT, EN e ES: https://inematds.github.io/ccdashboard/guia/
+  guia/                    guia em PT, EN e ES: https://linnoff88-dev.github.io/arckhe-/guia/
 
 Telemetria de agentes (Frente C, tudo local, sem nuvem)
   Mostra ao vivo todas as sessões do Claude Code e do Codex nesta máquina:
